@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encoders: Guía Interactiva y Simulación</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-cyan-500 selection:text-slate-950">
+
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 backdrop-blur-md bg-slate-900/80 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="p-2 bg-cyan-500/10 rounded-lg border border-cyan-500/30">
+                    <i data-lucide="cpu" class="w-6 h-6 text-cyan-400"></i>
+                </div>
+                <span class="text-xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+                    EncoderLab
+                </span>
+            </div>
+            <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-300">
+                <a href="#que-es" class="hover:text-cyan-400 transition">¿Qué es?</a>
+                <a href="#tipos" class="hover:text-cyan-400 transition">Tipos</a>
+                <a href="#simulador" class="hover:text-cyan-400 transition">Simulador Interactivo</a>
+                <a href="#aplicaciones" class="hover:text-cyan-400 transition">Aplicaciones</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative py-24 px-6 overflow-hidden border-b border-slate-800">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(14,165,233,0.15),rgba(255,255,255,0))]"></div>
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 mb-6">
+                <i data-lucide="zap" class="w-3.5 h-3.5"></i> Sistemas Programables & Sensores
+            </span>
+            <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-white mb-6">
+                Encoders Ópticos y Magnéticos
+            </h1>
+            <p class="text-lg md:text-xl text-slate-400 leading-relaxed max-w-2xl mx-auto mb-8">
+                Descubre cómo los sensores angulares convierten el movimiento mecánico en señales digitales para el control preciso en mecatrónica y robótica.
+            </p>
+            <a href="#simulador" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-semibold shadow-lg shadow-cyan-500/20 transition">
+                Probar Simulador <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+        </div>
+    </header>
+
+    <!-- Seccion ¿Qué es? -->
+    <section id="que-es" class="py-20 px-6 max-w-7xl mx-auto border-b border-slate-800/80">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <h2 class="text-3xl font-bold mb-6 text-white flex items-center gap-3">
+                    <i data-lucide="disc" class="text-cyan-400"></i> ¿Qué es un Encoder?
+                </h2>
+                <p class="text-slate-300 leading-relaxed mb-4">
+                    Un <strong>encoder (o codificador)</strong> es un dispositivo electromecánico electromagnético u óptico que convierte la posición angular o movimiento de un eje o eje en señales de código analógico o digital.
+                </p>
+                <p class="text-slate-400 leading-relaxed mb-6">
+                    Se utiliza ampliamente en robótica, máquinas CNC, motores a pasos y servomotores para medir velocidad, dirección y posición exacta.
+                </p>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="p-4 bg-slate-900 rounded-xl border border-slate-800">
+                        <div class="text-2xl font-bold text-cyan-400 mb-1">Óptico</div>
+                        <div class="text-xs text-slate-400">Usa luz y un disco ranurado para precisión alta.</div>
+                    </div>
+                    <div class="p-4 bg-slate-900 rounded-xl border border-slate-800">
+                        <div class="text-2xl font-bold text-blue-400 mb-1">Magnético</div>
+                        <div class="text-xs text-slate-400">Usa sensores Hall, resistente al polvo y grasa.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-slate-900 p-8 rounded-2xl border border-slate-800 shadow-xl flex flex-col items-center justify-center min-h-[300px]">
+                <div class="w-32 h-32 rounded-full border-4 border-dashed border-cyan-400/60 animate-spin-slow flex items-center justify-center relative mb-4">
+                    <div class="w-16 h-16 rounded-full bg-slate-800 border-2 border-cyan-400"></div>
+                </div>
+                <span class="text-xs text-slate-400 font-mono">Simulación física simplificada</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seccion Tipos -->
+    <section id="tipos" class="py-20 px-6 max-w-7xl mx-auto border-b border-slate-800/80">
+        <h2 class="text-3xl font-bold text-center mb-12 text-white">Tipos Principales de Encoders</h2>
+        <div class="grid md:grid-cols-2 gap-8">
+            <!-- Incremental -->
+            <div class="bg-slate-900 p-8 rounded-2xl border border-slate-800 hover:border-cyan-500/50 transition">
+                <div class="p-3 bg-cyan-500/10 text-cyan-400 rounded-xl w-fit mb-6">
+                    <i data-lucide="activity" class="w-6 h-6"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-3">Encoder Incremental</h3>
+                <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                    Genera pulsos proporcionales a la rotación. Requiere un punto de referencia ("Home") para conocer la posición absoluta al encender el sistema. Usa señales A, B (desfasadas 90°) y Z (índice por vuelta).
+                </p>
+                <ul class="text-xs text-slate-300 space-y-2">
+                    <li class="flex items-center gap-2"><i data-lucide="check" class="text-cyan-400 w-4 h-4"></i> Mide velocidad y dirección relativa.</li>
+                    <li class="flex items-center gap-2"><i data-lucide="check" class="text-cyan-400 w-4 h-4"></i> Económico y altamente utilizado.</li>
+                </ul>
+            </div>
+            <!-- Absoluto -->
+            <div class="bg-slate-900 p-8 rounded-2xl border border-slate-800 hover:border-blue-500/50 transition">
+                <div class="p-3 bg-blue-500/10 text-blue-400 rounded-xl w-fit mb-6">
+                    <i data-lucide="compass" class="w-6 h-6"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-3">Encoder Absoluto</h3>
+                <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                    Proporciona un código único (Binario o Código Gray) para cada posición exacta del eje. Si el sistema se apaga o pierde energía, no pierde su posición.
+                </p>
+                <ul class="text-xs text-slate-300 space-y-2">
+                    <li class="flex items-center gap-2"><i data-lucide="check" class="text-blue-400 w-4 h-4"></i> Posición conocida al instante sin calibrar.</li>
+                    <li class="flex items-center gap-2"><i data-lucide="check" class="text-blue-400 w-4 h-4"></i> Alta seguridad e inmunidad al ruido eléctrico.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Simulador Interactivo -->
+    <section id="simulador" class="py-20 px-6 max-w-7xl mx-auto border-b border-slate-800/80">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-white mb-4">Simulador de Encoder Incremental</h2>
+            <p class="text-slate-400 text-sm">Ajusta la velocidad y observa las señales cuadradas de los Canales A y B (Cuadratura).</p>
+        </div>
+
+        <div class="grid lg:grid-cols-3 gap-8 items-center bg-slate-900 p-8 rounded-3xl border border-slate-800 shadow-2xl">
+            <!-- Disco interactivo -->
+            <div class="flex flex-col items-center">
+                <div class="relative mb-6">
+                    <canvas id="diskCanvas" width="220" height="220" class="bg-slate-950 rounded-full border border-slate-800"></canvas>
+                </div>
+                <div class="flex gap-4">
+                    <button id="btnPlay" class="px-5 py-2.5 bg-cyan-500 text-slate-950 rounded-xl font-semibold hover:bg-cyan-400 transition flex items-center gap-2 text-sm">
+                        <i data-lucide="play" class="w-4 h-4"></i> Iniciar
+                    </button>
+                    <button id="btnDir" class="px-5 py-2.5 bg-slate-800 text-slate-200 rounded-xl font-semibold hover:bg-slate-700 transition flex items-center gap-2 text-sm">
+                        <i data-lucide="repeat" class="w-4 h-4"></i> Cambiar Giro
+                    </button>
+                </div>
+            </div>
+
+            <!-- Gráfica de Ondas -->
+            <div class="lg:col-span-2 space-y-6">
+                <div>
+                    <label class="block text-xs font-semibold text-slate-400 mb-2">Velocidad de Rotación (RPM)</label>
+                    <input id="speedSlider" type="range" min="1" max="10" value="3" class="w-full accent-cyan-400 bg-slate-800 rounded-lg h-2 cursor-pointer">
+                </div>
+
+                <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800">
+                    <div class="flex justify-between items-center mb-2 text-xs">
+                        <span class="text-cyan-400 font-semibold">Canal A (Pulso Principal)</span>
+                        <span class="text-blue-400 font-semibold">Canal B (Desfasado 90°)</span>
+                    </div>
+                    <canvas id="waveCanvas" width="500" height="120" class="w-full"></canvas>
+                </div>
+
+                <div class="p-4 bg-slate-800/50 rounded-xl text-xs text-slate-300 flex justify-between">
+                    <div>Dirección actual: <span id="dirText" class="font-bold text-cyan-400">Horario (CW)</span></div>
+                    <div>Pulsos contados: <span id="pulseCount" class="font-bold text-cyan-400">0</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-10 text-center text-xs text-slate-500 border-t border-slate-900">
+        <p>© 2026 EncoderLab — Proyecto de Sistemas Programables</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
